@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Website Title -->
+    <title>MDK</title>
+    <meta property="og:title" content="P&G Car hire | The best and most convinient car hire in Lilongwe Malawi">
+    <!-- Website Title -->
+    
+    <!-- Website Conanical Link -->
+    <link href="index.html" rel="conanical">
+    <meta property="og:url" content="index.html">
+    <!-- Website Conanical Link -->
+    
+    <!-- Website Description -->
+    <meta name="description" content="">
+    <meta property="og:description" content="">
+    <!-- Website Description -->
+    
+    <!-- Keywords -->
+    <meta name="keyword" content="MDK">
+    <meta name="author" content="MDK">
+    <!-- Keywords -->
+    
+    
+    <!-- Icon fonts -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Icon fonts -->
+
+    <!-- Data table -->
+    <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Data table-->
+
+    <!-- Data AOS -->
+    <link rel="stylesheet" href="assets/aos/aos.css">
+    <!-- Data AOS -->
+    
+    <!-- local CSS file -->
+    <link rel="stylesheet" href="css/main.min.css">
+    <!-- local CSS file -->
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo w-10 flex ac jc" id="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    
+        <div class="menu-btn flex f-col ac jc">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+    
+        <nav class="menu">
+            <ul class="menu-nav">
+                <li class="nav-item current">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="cars.html" class="nav-link">cars</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="contacts.html" class="nav-link">contacts</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header section end-->
+
+    <p>Before</p><br>
+    <%- body %> 
+    <p>After</p><br>
+
+<script src="assets/jquery/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="assets/aos/aos.js"></script>
+<!-- Page level plugins -->
+<script src="assets/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+<script>
+    AOS.init({
+        offset: 200,
+        duration: 1000,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom',
+        mirror: true
+    });
+</script>
+</body>
+</html>
