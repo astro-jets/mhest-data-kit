@@ -1,10 +1,18 @@
-// if(process.env.NODE_ENV !== 'production')
-// {
-//     require('dotenv').parse()
-// }
-
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
+mongoose.connect("mongodb://127.0.0.1:27017",{
+    useNewUrlParser:true,useUnifiedTopology: true
+
+},(err)=>{
+    if(err)
+    {
+        console.log(err)
+    }else{
+        console.log("successfully connected")
+    }
+})
+
 const expressLayouts = require('express-ejs-layouts');
 const mainRouter = require('./routes/main');
 
@@ -13,12 +21,6 @@ app.set('views', __dirname+'/views');
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 app.use(express.static('public'));
-
-// const mongoose = require('mongoose');
-// mongoose.connect(process.env.DB_URL,{useNewUrlParser:true});
-// const db =mongoose.connect;
-// db.on('error', error => console.error(error))
-// db.once('open', ()=> console.log('Connected'));
 
 app.use("/",mainRouter);
 
