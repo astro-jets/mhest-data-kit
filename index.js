@@ -13,6 +13,8 @@ mongoose.connect("mongodb://127.0.0.1:27017",{
     }
 })
 
+bp = require("body-parser");
+
 //ROUTES
 const expressLayouts = require('express-ejs-layouts');
 const mainRouter = require('./routes/main');
@@ -23,7 +25,7 @@ app.set('views', __dirname+'/views');
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 app.use(express.static('public'));
-
+app.use(bp.urlencoded({limit:'10mb', extended:false}))
 app.use("/",mainRouter);
 app.use("/cbos",cboRouter);
 

@@ -1,1 +1,17 @@
-ALL CBOS
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2>Search CBO</h2>
+
+<form action="/cbos" method="get">
+    <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
+    <button type="submit">Search</button>
+</form>
+
+<% cbos.forEach(cbo=>{ %>
+    <div><%= cbo.name %> </div>
+<% }) %> 
