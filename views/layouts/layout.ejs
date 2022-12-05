@@ -26,76 +26,39 @@
     
     
     <!-- Icon fonts -->
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <link rel="stylesheet" href="../css/flaticon.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
     <!-- Icon fonts -->
 
     <!-- Data table -->
-    <link href="assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Data table-->
 
     <!-- Data AOS -->
-    <link rel="stylesheet" href="assets/aos/aos.css">
+    <link rel="stylesheet" href="../assets/aos/aos.css">
     <!-- Data AOS -->
     
     <!-- local CSS file -->
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="../css/main.min.css">
     <!-- local CSS file -->
 </head>
 
 <body>
-    <!-- Header section -->
-    <header>
-        <div class="logo w-10 flex ac jc" id="logo">
-            <img src="images/logo.png" alt="">
-        </div>
-    
-        <div class="menu-btn flex f-col ac jc">
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-        </div>
-    
-        <nav class="menu">
-            <ul class="menu-nav">
-                <li class="nav-item current">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-    
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Us</a>
-                </li>
-    
-                <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
-                </li>
-    
-                <li class="nav-item">
-                    <a href="cars.html" class="nav-link">cars</a>
-                </li>
-    
-                <li class="nav-item">
-                    <a href="contacts.html" class="nav-link">contacts</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Header section end-->
-
+    <%- include ('../partials/header.ejs') %> 
     <p>Before</p><br>
     <%- body %> 
     <p>After</p><br>
 
-<script src="assets/jquery/jquery.min.js"></script>
-<script src="js/main.js"></script>
-<script src="assets/aos/aos.js"></script>
+<script src="../assets/jquery/jquery.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../assets/aos/aos.js"></script>
 <!-- Page level plugins -->
-<script src="assets/datatables/jquery.dataTables.min.js"></script>
-<script src="assets/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="../assets/datatables/jquery.dataTables.min.js"></script>
+<script src="../assets/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/datatables-demo.js"></script>
+<script src="../js/demo/datatables-demo.js"></script>
 
 <script>
     AOS.init({
