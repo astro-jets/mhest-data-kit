@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<main id="agents mt-10">
+    <section class="agent-list w-100 flex f-col ac jc">
+
+        <div class="search-form w-90">
+            <h2 class="">Search agent</h2>
+            
+            <form action="/team" method="get">
+                <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        
+        <table class="content-table w-90">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% agents.forEach(agent=>{ %>
+                <tr>
+                    <td data-label="agent"><%= agent.name %></td>
+                    <td data-label="Location"><%= agent.phone %></td>
+                    <td data-label="Members"><%= agent.email %></td>
+                    <td><a href="team/<%= agent.id %>">View profile</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </section>
+</main>

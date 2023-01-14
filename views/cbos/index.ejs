@@ -2,16 +2,39 @@
 <br>
 <br>
 <br>
-<br>
-<br>
+<main id="cbos mt-10">
+    <section class="cbo-list w-100 flex f-col ac jc">
 
-<h2>Search CBO</h2>
-
-<form action="/cbos" method="get">
-    <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
-    <button type="submit">Search</button>
-</form>
-
-<% cbos.forEach(cbo=>{ %>
-    <div><%= cbo.name %> </div>
-<% }) %> 
+        <div class="search-form w-90">
+            <h2 class="">Search CBO</h2>
+            
+            <form action="/cbos" method="get">
+                <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        
+        <table class="content-table w-90">
+            <thead>
+                <tr>
+                    <th>CBO</th>
+                    <th>Location</th>
+                    <th>Members</th>
+                    <th>Chairman</th>
+                    <th>profile</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cbos.forEach(cbo=>{ %>
+                <tr>
+                    <td data-label="CBO"><%= cbo.name %></td>
+                    <td data-label="Location"><%= cbo.location %></td>
+                    <td data-label="Members"><%= cbo.members %></td>
+                    <td data-label="Chairman"><%= cbo.chairman %></td>
+                    <td><a href="<%= cbo.id %>">View profile</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </section>
+</main>

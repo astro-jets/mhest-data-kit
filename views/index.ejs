@@ -1,1 +1,87 @@
-Middle
+
+<div class="tabs">
+    <div class="tab" data-link="/team">
+        <i class="icon icon-users"></i><p>Field Team</p>
+    </div>
+    
+    <div class="tab">
+        <i class="icon icon-bar-chart"></i><p>Assessment <span>76</span></p> 
+    </div>
+    <div class="tab">
+        <i class="icon icon-help"></i><p>Requests <span>76</span></p>
+    </div>
+    <div class="tab">
+        <i class="icon icon-pie-chart"></i><p>Reports <span>76</span></p> 
+    </div>
+</div>
+
+<div class="graphs mt-5 w-100 flex">
+    <div class="left-graph w-30 flex f-col ac bx">
+        <h2>Statistic this month</h2>
+
+        <div class="graph">
+            <canvas id="myPieChart" class="w-10"></canvas>
+        </div>
+
+        <div class="key felx f-col ac jc">
+
+            <div class="germination flex w-100">
+                <span> &nbsp; </span>
+                <p>                    
+                    Germination Rate: 80%
+                </p>
+            </div>
+            
+
+            <div class="survival flex w-100">
+                <span>&nbsp;</span>
+                <p>Survival Rate: 30%</p>
+            </div>
+
+            <div class="motarity flex w-100">
+                <span>&nbsp;</span>
+                <p>Motarity Rate: 30%</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="right-graph w-60 flex f-col ac">
+        <h2>Traditional Authorities Stats</h2>
+        <canvas id="barChart" "></canvas>
+    </div>
+</div>
+
+<section class="cbo-list w-100 flex f-col ac mt-5 jc">
+
+    <table class="content-table w-90">
+        <thead>
+            <tr>
+                <th>CBO</th>
+                <th>Location</th>
+                <th>Members</th>
+                <th>Chairman</th>
+                <th>profile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cbos.forEach(cbo=>{ %>
+                <tr>
+                    <td data-label="CBO">
+                        <%= cbo.name %>
+                    </td>
+                    <td data-label="Location">
+                        <%= cbo.location %>
+                    </td>
+                    <td data-label="Members">
+                        <%= cbo.members %>
+                    </td>
+                    <td data-label="Chairman">
+                        <%= cbo.chairman %>
+                    </td>
+                    <td><a href="cbos/<%=cbo.id %>">View profile</a></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</section>

@@ -19,6 +19,7 @@ bp = require("body-parser");
 const expressLayouts = require('express-ejs-layouts');
 const mainRouter = require('./routes/main');
 const cboRouter = require('./routes/cbos');
+const teamRouter = require('./routes/team');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname+'/views');
@@ -28,5 +29,6 @@ app.use(express.static('public'));
 app.use(bp.urlencoded({limit:'10mb', extended:false}))
 app.use("/",mainRouter);
 app.use("/cbos",cboRouter);
+app.use("/team",teamRouter);
 
 app.listen(process.env.PORT || 3000)

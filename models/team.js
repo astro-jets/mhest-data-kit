@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
-const cboSchema = new mongoose.Schema({
+const teamSchema = new mongoose.Schema({
   "name": {
     type: String,
     required:true
   },
-  "location": {
+  "phone": {
     type: String,
     required:true
   },
   
-  "members": {
+  "email": {
     type: String,
     required:true
   },
   
-  "chairman": {
+  "password": {
     type: String,
     required:true
   },
 })
 
-module.exports = mongoose.model("Cbo",cboSchema);
+module.exports = mongoose.model("Team",teamSchema);

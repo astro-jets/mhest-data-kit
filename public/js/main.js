@@ -1,5 +1,15 @@
-//Select DOM items
+//Dashboard links
+const tabs = document.querySelectorAll('.tab');
 
+tabs.forEach(tab => {
+    tab.addEventListener('click',()=>{
+        let link = tab.attributes['data-link'].value;
+        window.location.assign(link)
+    })
+});
+
+
+//Select DOM items
 const menuBtn=document.querySelector('.menu-btn');
 const menu=document.querySelector('.menu');
 const menuNav=document.querySelector('.menu-nav');
@@ -38,7 +48,7 @@ var data = {
             label: 'Germination %',
             data: [12, 19, 3, 5, 2, 3],
             borderColor: ['#587ce4'],
-            borderWidth: 2,
+            borderWidth: 1,
             fill: false
         },
         {
@@ -47,7 +57,7 @@ var data = {
             borderColor: [
             '#ede190'
             ],
-            borderWidth: 2,
+            borderWidth: 1,
             fill: false
         },
         {
@@ -56,7 +66,7 @@ var data = {
             borderColor: [
             '#f44252'
             ],
-            borderWidth: 2,
+            borderWidth: 1,
             fill: false
         }
     ]
@@ -66,30 +76,40 @@ var groupData = {
     labels: ["Jan", "Feb", "March", "Apr", "May", "June"],
     datasets: [
         {
-            label: 'Germination %',
+            label: 'Mwambo',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: "#587ce4",
             hoverBackgroundColor: "#2e59d9",
-            borderColor: "#4e73df",
-            borderWidth: 2,
+            borderColor: "rgb(0, 81, 255)",
+            borderWidth: 1,
             fill: false
         },
         {
-            label: 'Survival Rate',
-            data: [5, 23, 7, 12, 42, 23],
-            backgroundColor: "#ede190",
-            hoverBackgroundColor: "#ede190",
-            borderColor: "#ede190",
-            borderWidth: 2,
-            fill: false
-        },
-        {
-            label: 'Total Trees',
+            label: 'Nkapita',
             data: [15, 10, 21, 32, 12, 33],
             backgroundColor: "#009879",
             hoverBackgroundColor: "#009879",
-            borderColor: "#009879",
-            borderWidth: 2,
+            borderColor: "rgb(90, 250, 90)",
+            borderWidth: 1,
+            fill: false
+        },
+        {
+            label: 'Mlumbe',
+            data: [5, 23, 7, 12, 42, 23],
+            backgroundColor: "#ede190",
+            hoverBackgroundColor: "#ede190",
+            borderColor: "#9c8805",
+            borderWidth: 1,
+            fill: false
+        }
+        ,
+        {
+            label: 'Chikowi',
+            data: [15, 10, 21, 32, 12, 33],
+            backgroundColor: "rgb(138, 219, 17)",
+            hoverBackgroundColor: "rgb(138, 219, 17)",
+            borderColor: "rgb(0, 128, 0)",
+            borderWidth: 1,
             fill: false
         }
     ]

@@ -33,10 +33,32 @@ router.get("/new",(req,res)=>{
     res.render('cbos/new',{cbo: new cbo()});
 })
 
+
+// Single CBO
+router.get("/:id",async  (req,res)=>{
+    const id =  req.params.id
+
+    try{
+        const cboSingle = await cbo.findById(id)
+        res.render('cbos/single',
+        {
+            cbo: cboSingle, 
+            searchOptions: req.query
+        });
+    }
+    catch
+    {
+        res.render('/');
+    }
+})
+
 //NEW CBO *FORM*
 router.post("/",async (req,res)=>{
     const cboName = new cbo({
-        name: req.body.name
+        name: req.body.name,
+        location: req.body.location,
+        members: req.body.members,
+        chairman: req.body.chairman
     })
 
     try{

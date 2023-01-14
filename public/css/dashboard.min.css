@@ -1,0 +1,84 @@
+.bx {
+  box-shadow: 0px 5px 12px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tabs {
+  margin-top: 10rem;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: space-around;
+}
+.tabs .tab {
+  width: 20%;
+  height: 9rem;
+  border-radius: 30px;
+  border-bottom: 1px solid rgb(0, 128, 0);
+  box-shadow: 0px 5px 12px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: 0.4s ease-out;
+}
+.tabs .tab i {
+  font-size: 3rem;
+  color: rgb(138, 219, 17);
+}
+.tabs .tab p {
+  font-size: 1.3rem;
+}
+.tabs .tab span {
+  margin: 0 0.5rem;
+  font-size: 1.3rem;
+  color: rgb(92, 153, 100);
+}
+.tabs .tab:hover {
+  transform: scale(1.1);
+}
+
+.graphs {
+  height: 80vh;
+  padding: 0 2%;
+  justify-content: space-between;
+}
+.graphs .graph {
+  width: 15rem;
+  height: 50vh;
+}
+.graphs .left-graph {
+  height: 100%;
+  padding-top: 1rem;
+  border-radius: 30px;
+  height: 100%;
+}
+.graphs .left-graph .key .germination,
+.graphs .left-graph .key .survival,
+.graphs .left-graph .key .motarity {
+  margin-top: 1rem;
+  font-weight: 549;
+}
+.graphs .left-graph .key .germination span,
+.graphs .left-graph .key .survival span,
+.graphs .left-graph .key .motarity span {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+.graphs .left-graph .key .germination span {
+  background: rgb(25, 214, 19);
+}
+.graphs .left-graph .key .survival span {
+  background: rgb(255, 153, 0);
+}
+.graphs .left-graph .key .motarity span {
+  background: rgb(224, 20, 5);
+}
+.graphs .right-graph {
+  width: 65% !important;
+  height: 100%;
+}
+.graphs .right-graph h2 {
+  margin-bottom: 2rem !important;
+}/*# sourceMappingURL=dashboard.min.css.map */

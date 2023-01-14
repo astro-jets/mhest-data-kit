@@ -1,0 +1,83 @@
+
+<main id="cbo-single">
+    <section class="upper-section w-100 flex ac">
+        <div class="avatar w-30">
+            <img src="images/dyac.png" alt="">
+        </div>
+
+        <ul class="cbo-contacts w-40">
+            <li>
+                <span>CBO Name:</span>
+                <p><%= cbo.name%></p>
+            </li>
+
+            <li>
+                <span>Director:</span>
+                <p><%= cbo.chairman%></p>
+            </li>
+
+            <li>
+                <span>Contacts:</span>
+                <p>0886007474</p>
+            </li>
+
+            <li>
+                <span>Email:</span>
+                <p>mphatsomtogolo30@gmail.com</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="mid-section w-100 flex">
+        <div class="total-members flex f-col">
+            <p>Total Members</p>
+            <p><%= cbo.members %> </p>
+        </div>
+        <div class="males">
+            <p>Males Members</p>
+            <p>85</p>
+        </div>
+
+        <div class="females">
+            <p>Females Members</p>
+            <p>105</p>
+        </div>
+    </section>
+
+    <!-- Map section -->
+    <section class="w-100 map flex ac jc mt-1">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.9741776211586!2d33.778043114047016!3d-13.780430190328937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x191f7f4f2397496f%3A0xf58e91b9b3ec5157!2sKamuzu%20International%20Airport!5e0!3m2!1sen!2smw!4v1666608808029!5m2!1sen!2smw"
+            height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            class="w-100"></iframe>
+    </section>
+    <!-- Map section end-->
+
+    <section class="lower-section mt-5">
+        <div class="statements w-100 flex">
+
+            <div class="mission-statement flex f-col ac jc w-45">
+                <h1>mission-statement</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum ipsam repellat recusandae culpa
+                    deleniti. Molestias, molestiae dolores. Ullam porro dolorem quisquam perferendis doloremque
+                    quibusdam voluptates ducimus, quia, laborum dicta soluta reprehenderit laudantium amet consequuntur
+                    earum animi cumque molestiae, esse quo labore nihil rem mollitia similique! Doloremque quaerat illo
+                    qui.</p>
+            </div>
+
+            <div class="vission-statement flex f-col ac jc w-45">
+                <h1>vission-statement</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cum voluptatibus quasi deleniti
+                    aperiam quibusdam maiores odit excepturi voluptate dicta, quidem nesciunt aliquid mollitia
+                    laboriosam ipsum? Aspernatur nam repellat aperiam illo, distinctio eveniet saepe, fugiat eligendi
+                    voluptatem eaque, consectetur labore est facilis error laudantium odit dolore voluptatibus unde at
+                    ipsa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="graph h-100 w-100 mt-10">
+        <h1>CBO Perfomance</h1>
+        <canvas id="lineChart" style="height:250px"></canvas>
+    </section>
+</main>
