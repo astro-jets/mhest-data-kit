@@ -42,7 +42,7 @@ router.get("/:id",async  (req,res)=>{
         const agentSingle = await team.findById(id)
         res.render('team/single',
         {
-            team: agentSingle, 
+            agent: agentSingle, 
             searchOptions: req.query
         });
     }

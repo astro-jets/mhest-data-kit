@@ -1,3 +1,155 @@
+.search-form form input {
+  border-radius: 30px;
+  width: 15rem;
+  height: 40px;
+  border: 1px solid rgb(19, 99, 3);
+  padding-left: 10px;
+}
+.search-form form button {
+  background: linear-gradient(45deg, green, rgba(104, 170, 4, 0.788));
+  border: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  padding: 10px;
+  margin-left: 1rem;
+}
+.search-form form button .icon {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+.bg img {
+  position: relative;
+  width: 100%;
+  height: 90vh !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 0;
+}
+.bg .overlay {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(11, 122, 11, 0.7), rgba(0, 128, 0, 0.849), green);
+}
+
+.profile-top-cover {
+  margin-top: 15rem;
+}
+.profile-top-cover h1 {
+  z-index: 20;
+  margin: 1rem 0;
+  font-size: 3rem;
+  color: white;
+}
+.profile-top-cover p.tag {
+  z-index: 20;
+  color: #fff;
+  margin: -1rem 0 5rem 0;
+}
+
+.profile-top {
+  background: #fff;
+  border-radius: 10px;
+  z-index: 10;
+  height: 60vh;
+  justify-content: space-around;
+}
+.profile-top .avatar {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border: 2px solid green;
+  overflow: hidden;
+}
+.profile-top .avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile-top .contact-details h2, .profile-top .contact-details p {
+  color: #000;
+  margin-top: 1rem;
+}
+.profile-top .contact-details span {
+  font-size: 1.1rem;
+  color: rgb(17, 143, 6);
+  margin-right: 1rem;
+}
+
+.work-details {
+  height: 80vh;
+  justify-content: space-evenly;
+}
+.work-details .requests, .work-details .reports {
+  height: 40vh;
+}
+.work-details .reports {
+  align-items: center !important;
+  border-radius: 30px;
+  height: 75vh;
+}
+.work-details .reports h2 {
+  margin: 1rem 0;
+}
+.work-details .reports .view-all {
+  color: rgb(7, 248, 7);
+}
+.work-details .reports .report {
+  box-shadow: 0px 5px 12px 5px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  height: 5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  padding: 10px;
+  border-bottom: 3px solid green;
+  justify-content: space-between;
+}
+.work-details .reports .report span {
+  color: green;
+  font-size: 3rem;
+}
+.work-details .reports .report .group small {
+  margin-top: 0.9rem;
+  color: rgb(7, 248, 7);
+}
+.work-details .requests {
+  height: 75vh;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.work-details .requests h2, .work-details .requests h3, .work-details .requests p {
+  font-weight: 900;
+  color: #fff;
+  z-index: 10;
+}
+.work-details .requests h3 {
+  font-size: 10rem;
+  color: #000;
+}
+.work-details .requests h2 {
+  position: absolute;
+  top: 1rem;
+}
+.work-details .requests .overlay {
+  position: absolute;
+  font-size: 40rem;
+  z-index: 0;
+  opacity: 0.6;
+  color: green;
+}
+
 .bx {
   box-shadow: 0px 5px 12px 5px rgba(0, 0, 0, 0.2);
 }

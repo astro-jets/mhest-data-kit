@@ -1,40 +1,64 @@
-<br>
-<br>
-<br>
-<br>
+<link rel="stylesheet" href="../css/style.css">
 <main id="cbos mt-10">
     <section class="cbo-list w-100 flex f-col ac jc">
 
-        <div class="search-form w-90">
-            <h2 class="">Search CBO</h2>
-            
+        <div class="search-form w-90 mt-10">
+            <h2 class="">Search agent</h2>
+        
             <form action="/cbos" method="get">
                 <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
-                <button type="submit">Search</button>
+                <button type="submit" class="felx ac jc bx"><i class="icon icon-search"></i></button>
             </form>
         </div>
-        
-        <table class="content-table w-90">
-            <thead>
-                <tr>
-                    <th>CBO</th>
-                    <th>Location</th>
-                    <th>Members</th>
-                    <th>Chairman</th>
-                    <th>profile</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% cbos.forEach(cbo=>{ %>
-                <tr>
-                    <td data-label="CBO"><%= cbo.name %></td>
-                    <td data-label="Location"><%= cbo.location %></td>
-                    <td data-label="Members"><%= cbo.members %></td>
-                    <td data-label="Chairman"><%= cbo.chairman %></td>
-                    <td><a href="<%= cbo.id %>">View profile</a></td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
+
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">CBOS</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table class="table table-responsive-xl">
+                                <thead>
+                                    <tr>
+                                        <tr>
+                                            <th>CBO</th>
+                                            <th>Members</th>
+                                            <th>Chairman</th>
+                                            <th>Location</th>
+                                            <th>profile</th>
+                                        </tr>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% cbos.forEach(cbo=>{ %>
+                                        <tr class="alert" role="alert">
+                                            <td class="d-flex align-items-center">
+                                                <div class="img" style="background-image: url(../images/dyac.png);"></div>
+                                                <div class="pl-3 email">
+                                                    <span>
+                                                        <%= cbo.name %>
+                                                    </span>
+                                                    <span>
+                                                        <%= cbo.phone %>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td><%= cbo.members %></td>
+                                            <td> <%= cbo.chairman %></td>
+                                            <td> <%= cbo.location %></td>
+                                            <td><a href="<%= cbo.id %>">View profile</a></td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 </main>
