@@ -1,11 +1,75 @@
-<label for="name">C.B.O Name</label>
-<input type="text" name="name" value="<%= cbo.name %>">
+<div class="cbo-form">
+    <div class="flex w-100 top-details">
+        <div class="name w-40 flex f-col">
+            <label for="name">CBO Name</label>
+            <input type="text" name="name" value="<%=cbo.name %> ">
+        </div>
+        <div class="name w-50 flex f-col">
+            <label for="">Location Details</label>
+            <div class="group flex w-100">
+                <div class="w-40 flex f-col">
+                    <label for="name">Traditional Authority</label>
+                    <input type="text" name="ta" value="<%=cbo.ta %> ">
+                </div>
 
-<label for="name">location</label>
-<input type="text" name="location">
+                <div class="w-40 flex f-col">
+                    <label for="name">Area</label>
+                    <input type="text" name="area" value="<%=cbo.area %> ">
+                </div>
+            </div>
+        </div>
+    </div>
 
-<label for="name">Members</label>
-<input type="text" name="members">
+    <div class="flex w-100 center-details">
+        <div class="name w-50 flex f-col">
+            <label for="">Members</label>
+            <div class="group flex w-100">
+                <div class="w-40 flex f-col">
+                    <label for="name">Males</label>
+                    <input type="text" name="males" value="<%=cbo.males %> ">
+                </div>
+        
+                <div class="w-40 flex f-col">
+                    <label for="name">Females</label>
+                    <input type="text" name="females" value="<%=cbo.females %> ">
+                </div>
+            </div>
+        </div>
+        <div class="name w-50 flex f-col">
+            <label for="">Chairman</label>
+            <div class="group flex w-100">
+                <div class="w-30 flex f-col">
+                    <label for="name">Name</label>
+                    <input type="text" name="chairman_name" value="<%=cbo.chairman_name %> ">
+                </div>
+    
+                <div class="w-30 flex f-col">
+                    <label for="name">Phone</label>
+                    <input type="text" name="chairman_phone" value="<%=cbo.chair_phone %> ">
+                </div>
 
-<label for="name">Chairman</label>
-<input type="text" name="chairman">
+                <div class="w-30 flex f-col">
+                    <label for="name">Email</label>
+                    <input type="email" name="chairman_email" value="<%=cbo.chair_email %> ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex w-100 bottom-details">
+        <div class="name w-50 flex f-col">
+            <label for="">Logo</label>
+            <input type="file" name="logo">
+        </div>
+        <div class="name w-50 flex f-col">
+            <label for="">Description</label>
+            <textarea name="description" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+    <!-- name -->
+    <!-- members -->
+    logo
+    description
+    <!-- location -->
+    <!-- chairdetails -->
+</div>

@@ -150,6 +150,17 @@
   color: green;
 }
 
+.cbo-form {
+  padding: 1rem;
+}
+.cbo-form .top-details, .cbo-form .center-details {
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.cbo-form .top-details .group input, .cbo-form .center-details .group input {
+  margin-right: 1rem;
+}
+
 .bx {
   box-shadow: 0px 5px 12px 5px rgba(0, 0, 0, 0.2);
 }

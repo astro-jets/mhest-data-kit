@@ -56,12 +56,19 @@ router.get("/:id",async  (req,res)=>{
 router.post("/",async (req,res)=>{
     const cboName = new cbo({
         name: req.body.name,
-        location: req.body.location,
-        members: req.body.members,
-        chairman: req.body.chairman
+        tAuthority: req.body.ta,
+        area: req.body.area,
+        males: req.body.males,
+        females: req.body.females,
+        chairman_name: req.body.chairman_name,
+        chairman_email: req.body.chairman_email,
+        chairman_phone: req.body.chairman_phone,
+        logo: req.body.logo,
+        description: req.body.description
     })
 
     try{
+        console.log(req.body.name)
         const newCbo = await cboName.save();
         // res.redirect(`cbos/${newCbo.id}`)
         res.redirect(`cbos`)

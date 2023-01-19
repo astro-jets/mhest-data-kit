@@ -40,6 +40,7 @@ router.get("/:id",async  (req,res)=>{
 
     try{
         const agentSingle = await team.findById(id)
+        agentSingle.image = 'person_4.jpg';
         res.render('team/single',
         {
             agent: agentSingle, 

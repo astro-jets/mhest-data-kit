@@ -1,24 +1,22 @@
 <link rel="stylesheet" href="../css/style.css">
 <main id="cbos mt-10">
     <section class="cbo-list w-100 flex f-col ac jc">
-
-        <div class="search-form w-90 mt-10">
-            <h2 class="">Search agent</h2>
-        
-            <form action="/cbos" method="get">
-                <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
-                <button type="submit" class="felx ac jc bx"><i class="icon icon-search"></i></button>
-            </form>
-        </div>
-
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center mb-5">
-                        <h2 class="heading-section">CBOS</h2>
+                        <h2 class="heading-section">Community Based Organisations</h2>
                     </div>
                 </div>
-                <div class="row">
+                <div class="search-form w-90 ">
+                    <h2 class="">Search CBO</h2>
+                
+                    <form action="/cbos" method="get">
+                        <input type="text" name="name" id="name" value="<%=searchOptions.name%>">
+                        <button type="submit" class="felx ac jc bx"><i class="icon icon-search"></i></button>
+                    </form>
+                </div>
+                <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="table-wrap">
                             <table class="table table-responsive-xl">
