@@ -150,15 +150,90 @@
   color: green;
 }
 
-.cbo-form {
+form .agent-form, form .cbo-form {
   padding: 1rem;
 }
-.cbo-form .top-details, .cbo-form .center-details {
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
+form .agent-form input, form .cbo-form input {
+  margin-top: 1rem;
+  height: 50px;
+  background: rgb(253, 253, 255);
+  border: 0;
+  border-bottom: greenyellow 2px solid;
+  font-size: 1.1rem;
 }
-.cbo-form .top-details .group input, .cbo-form .center-details .group input {
+form .agent-form .main-label, form .cbo-form .main-label {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: green;
+  margin-bottom: 1rem;
+}
+form .agent-form .top-details, form .agent-form .center-details, form .agent-form .bottom-details, form .cbo-form .top-details, form .cbo-form .center-details, form .cbo-form .bottom-details {
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+form .agent-form .top-details .group input, form .agent-form .center-details .group input, form .agent-form .bottom-details .group input, form .cbo-form .top-details .group input, form .cbo-form .center-details .group input, form .cbo-form .bottom-details .group input {
   margin-right: 1rem;
+}
+form .agent-form .bottom-details .logo-section, form .cbo-form .bottom-details .logo-section {
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  cursor: pointer;
+  border: 2px dashed greenyellow;
+  border-radius: 10px;
+}
+form .agent-form .bottom-details .logo-section input, form .cbo-form .bottom-details .logo-section input {
+  position: absolute;
+  top: -10px;
+  height: 100%;
+  width: 100%;
+}
+form .agent-form .bottom-details .logo-section i, form .cbo-form .bottom-details .logo-section i {
+  font-size: 3rem;
+  color: rgb(122, 196, 11);
+  margin-bottom: 1rem;
+}
+form .agent-form .bottom-details textarea, form .cbo-form .bottom-details textarea {
+  border: 2px solid greenyellow;
+  padding: 2px;
+  height: 200px !important;
+  width: 90%;
+}
+form .buttons {
+  margin-bottom: 3rem;
+  height: 50px;
+  padding-left: 1%;
+  justify-content: space-between;
+}
+form .buttons button, form .buttons a {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.9s ease-out;
+}
+form .buttons button {
+  background: linear-gradient(45deg, green, rgb(96, 160, 96));
+  border: 0;
+  color: #fff;
+}
+form .buttons button:hover {
+  background: green;
+  transform: scale(1.1);
+}
+form .buttons a {
+  background: linear-gradient(45deg, rgb(192, 77, 77), red);
+}
+form .buttons a:hover {
+  background: red;
+  transform: scale(1.1);
+}
+form .agent-form .bottom-details .password-fields input {
+  width: 80%;
 }
 
 .bx {

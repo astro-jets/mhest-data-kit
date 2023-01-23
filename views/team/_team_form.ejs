@@ -1,11 +1,48 @@
-<label for="name">Full Name</label>
-<input type="text" name="name">
+<div class="agent-form">
+    <div class="flex w-100 center-details">
+        <div class="name w-50 flex f-col">
+            <label for="" class="main-label">Facilitator Details</label>
+            <div class="group flex w-100">
+                <div class="w-40 flex f-col">
+                    <label for="name">First Name</label>
+                    <input type="text" name="firstname" value="<%=agent.firstname %> ">
+                </div>
 
-<label for="phone">Phone</label>
-<input type="text" name="phone">
+                <div class="w-40 flex f-col">
+                    <label for="name">Last Name</label>
+                    <input type="text" name="lastname" value="<%=agent.lastname %> ">
+                </div>
+            </div>
+        </div>
+        <div class="name w-50 flex f-col">
+            <label for="" class="main-label">Contact Details</label>
+            <div class="group flex w-100">
+                <div class="w-40 flex f-col">
+                    <label for="name">Phone</label>
+                    <input type="text" name="phone" value="<%=agent.phone %> ">
+                </div>
 
-<label for="email">Email</label>
-<input type="text" name="email">
+                <div class="w-40 flex f-col">
+                    <label for="name">Email</label>
+                    <input type="email" name="email" value="<%=agent.email %> ">
+                </div>
+            </div>
+        </div>
+    </div>
 
-<label for="password">Password</label>
-<input type="text" name="password">
+    <div class="flex w-100 bottom-details">
+        <div class="name w-40 flex f-col logo-section ac jc">
+            <i class="icon icon-camera"></i>
+            <p>select a file to upload agent logo</p>
+            <input type="file" class="logoBtn" name="avatar" hidden>
+        </div>
+
+        <div class="name password-fields w-50 flex f-col">
+            <label for="" class="main-label">Password</label>
+            <input type="password" name="password" id="">
+
+            <label for="" class="main-label mt-1">Password Confirm</label>
+            <input type="password" name="password_confirm" id="">
+        </div>
+    </div>
+</div>

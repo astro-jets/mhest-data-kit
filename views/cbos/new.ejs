@@ -1,7 +1,10 @@
 <h1 class="mt-10">New CBO</h1>
 
-<form action="/cbos" method="post" enctype="multipart/form-data" class="flex f-col">    
+<form action="/cbos" method="post" enctype="multipart/form-data" class="flex f-col cbo-form">    
     <%- include('_cbo_form') %> 
-    <button type="submit">Create</button>
-    <a href="/cbos" style="background-color: #000;">Cancel</a>
+
+    <div class="buttons flex w-40">
+        <button type="submit" class="bx">Create</button>
+        <a href="/cbos" class="bx">Cancel</a>
+    </div>
 </form>

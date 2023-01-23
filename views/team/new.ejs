@@ -1,7 +1,8 @@
-<h1>New Facilitator</h1>
-
-<form action="/team" method="post" class="flex f-col">    
+<h1 class="mt-5">New Facilitator</h1>
+<form action="/team" method="post" enctype="multipart/form-data" class="flex f-col">    
     <%- include('_team_form') %> 
-    <button type="submit">Create</button>
-    <a href="/team" style="background-color: #000;">Cancel</a>
+    <div class="buttons flex w-40">
+        <button type="submit" class="bx">Create</button>
+        <a href="/team" class="bx">Cancel</a>
+    </div>
 </form>

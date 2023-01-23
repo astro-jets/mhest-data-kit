@@ -2,7 +2,7 @@
 <main id="cbo-single">
     <section class="upper-section w-100 flex ac">
         <div class="avatar w-30">
-            <img src="images/dyac.png" alt="">
+            <img src="<%=cbo.logoPath%>" alt="">
         </div>
 
         <ul class="cbo-contacts w-40">
@@ -13,17 +13,17 @@
 
             <li>
                 <span>Director:</span>
-                <p><%= cbo.chairman%></p>
+                <p><%= cbo.chairman_name%></p>
             </li>
 
             <li>
                 <span>Contacts:</span>
-                <p>0886007474</p>
+                <p><%= cbo.chairman_phone%></p>
             </li>
 
             <li>
                 <span>Email:</span>
-                <p>mphatsomtogolo30@gmail.com</p>
+                <p><%= cbo.chairman_email%></p>
             </li>
         </ul>
     </section>
@@ -31,16 +31,16 @@
     <section class="mid-section w-100 flex">
         <div class="total-members flex f-col">
             <p>Total Members</p>
-            <p><%= cbo.members %> </p>
+            <p><%= parseInt(cbo.males)+parseInt(cbo.females) %> </p>
         </div>
         <div class="males">
             <p>Males Members</p>
-            <p>85</p>
+            <p><%= cbo.males%></p>
         </div>
 
         <div class="females">
             <p>Females Members</p>
-            <p>105</p>
+            <p><%= cbo.females%></p>
         </div>
     </section>
 
@@ -58,11 +58,7 @@
 
             <div class="mission-statement flex f-col ac jc w-45">
                 <h1>mission-statement</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum ipsam repellat recusandae culpa
-                    deleniti. Molestias, molestiae dolores. Ullam porro dolorem quisquam perferendis doloremque
-                    quibusdam voluptates ducimus, quia, laborum dicta soluta reprehenderit laudantium amet consequuntur
-                    earum animi cumque molestiae, esse quo labore nihil rem mollitia similique! Doloremque quaerat illo
-                    qui.</p>
+                <p><%= cbo.description%></p>
             </div>
 
             <div class="vission-statement flex f-col ac jc w-45">

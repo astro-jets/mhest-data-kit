@@ -35,19 +35,19 @@
                                     <% cbos.forEach(cbo=>{ %>
                                         <tr class="alert" role="alert">
                                             <td class="d-flex align-items-center">
-                                                <div class="img" style="background-image: url(../images/dyac.png);"></div>
+                                                <div class="img" style="background-image: url(../uploads/cboLogos/<%=cbo.logo%>);"></div>
                                                 <div class="pl-3 email">
                                                     <span>
                                                         <%= cbo.name %>
                                                     </span>
                                                     <span>
-                                                        <%= cbo.phone %>
+                                                        <%= cbo.chairman_phone %>
                                                     </span>
                                                 </div>
                                             </td>
-                                            <td><%= cbo.members %></td>
-                                            <td> <%= cbo.chairman %></td>
-                                            <td> <%= cbo.location %></td>
+                                            <td><%= parseInt(cbo.males)+parseInt(cbo.females) %></td>
+                                            <td> <%= cbo.chairman_name %></td>
+                                            <td> <%= cbo.tAuthority %></td>
                                             <td><a href="<%= cbo.id %>">View profile</a></td>
                                         </tr>
                                         <% }) %>

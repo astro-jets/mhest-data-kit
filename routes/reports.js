@@ -1,12 +1,12 @@
 const express = require('express');
-const team = require('../models/team');
+const report = require('../models/report');
 const router = express.Router();
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
 const imageMimeTypes = ['image/jpeg','image/png','image/ico']
-const uploadPath = path.join('public',team.coverImageBasePath)
+const uploadPath = path.join('public',report.coverImageBasePath)
 const upload = multer({
     dest: uploadPath,
     fileFilter:(req,file,callback)=>{
@@ -16,10 +16,10 @@ const upload = multer({
 
 
 
-//ALL agents
+//ALL reports
 router.get("/", async (req,res)=>{
 
-    // Searching a team
+    // Searching a report
     let searchOptions = {}
 
     if(req.query.name !== null && req.query.name !== "")
@@ -28,10 +28,10 @@ router.get("/", async (req,res)=>{
     }
 
     try{
-        const agents = await team.find(searchOptions)
-        res.render('team/index',
+        const reports = await report.find(searchOptions)
+        res.render('reports/index',
         {
-            agents: agents, 
+            report: reports, 
             searchOptions: req.query
         });
     }
@@ -41,21 +41,21 @@ router.get("/", async (req,res)=>{
     }
 })
 
-//NEW team *PAGE*
+//NEW report *PAGE*
 router.get("/new",(req,res)=>{
-    res.render('team/new',{agent: new team()});
+    res.render('reports/new',{agent: new report()});
 })
 
 
-// Single team
+// Single report
 router.get("/:id",async  (req,res)=>{
     const id =  req.params.id
 
     try{
-        const agentSingle = await team.findById(id)
-        res.render('team/single',
+        const reportsingle = await report.findById(id)
+        res.render('reports/single',
         {
-            agent: agentSingle, 
+            agent: reportsingle, 
             searchOptions: req.query
         });
     }
@@ -65,11 +65,11 @@ router.get("/:id",async  (req,res)=>{
     }
 })
 
-//NEW team *FORM*
-router.post("/", upload.single('avatar'), async (req,res)=>{
+//NEW report *FORM*
+router.post("/", upload.single('file'), async (req,res)=>{
     const filename = req.file != null ? req.file.filename : null;
     
-    const agentDetails = new team({
+    const reportDetails = new report({
         name: req.body.firstname +' '+req.body.lastname ,
         phone: req.body.phone,
         email: req.body.email,
@@ -79,8 +79,8 @@ router.post("/", upload.single('avatar'), async (req,res)=>{
     
     if(req.body.password != req.body.password_confirm)
     {
-        res.render('team/new',{
-            agent: agentDetails,
+        res.render('reports/new',{
+            agent: reportDetails,
             errMessage: "Passwords do not match."
         })
     }
@@ -88,18 +88,18 @@ router.post("/", upload.single('avatar'), async (req,res)=>{
     {
 
         try{
-            const newAgent = await agentDetails.save();
-            // res.redirect(`agents/${newCbo.id}`)
-            res.redirect(`team`)
+            const newAgent = await reportDetails.save();
+            // res.redirect(`reports/${newCbo.id}`)
+            res.redirect(`report`)
         }
         
         catch{
-            if(agentDetails.avatar != null)
+            if(reportDetails.avatar != null)
             {
-                removeAvatar(team.avatar)
+                removeAvatar(report.avatar)
             }
-            res.render('team/new',{
-                team: agentDetails,
+            res.render('reports/new',{
+                report: reportDetails,
                 errMessage: "Error creating facilitator."
             })
         }

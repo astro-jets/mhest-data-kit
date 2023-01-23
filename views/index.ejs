@@ -5,13 +5,13 @@
         <i class="icon icon-users"></i><p>Field Team</p>
     </div>
     
-    <div class="tab">
+    <div class="tab" data-link="/assessments">
         <i class="icon icon-bar-chart"></i><p>Assessment <span>76</span></p> 
     </div>
-    <div class="tab">
+    <div class="tab" data-link="/requests">
         <i class="icon icon-help"></i><p>Requests <span>76</span></p>
     </div>
-    <div class="tab">
+    <div class="tab" data-link="/reports">
         <i class="icon icon-pie-chart"></i><p>Reports <span>76</span></p> 
     </div>
 </div>
@@ -77,7 +77,7 @@
                                 <% cbos.forEach(cbo=>{ %>
                                     <tr class="alert" role="alert">
                                         <td class="d-flex align-items-center">
-                                            <div class="img" style="background-image: url(images/person_1.jpg);"></div>
+                                            <div class="img" style="background-image: url('../uploads/cboLogos/<%= cbo.logo %>');"></div>
                                             <div class="pl-3 email">
                                                 <span>
                                                     <%= cbo.email %>

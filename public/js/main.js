@@ -152,3 +152,11 @@ if ($("#lineChart").length) {
       options: options
     });
   }
+
+  //Drag and drop form
+  const logoBtnContainer = document.querySelector('.logo-section');
+  const logoBtn = document.querySelector('.logoBtn');
+
+  logoBtnContainer.addEventListener('click',()=>{
+    logoBtn.click();
+  })
