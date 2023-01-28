@@ -1,1 +1,18 @@
-Assessment
+<div class="assessments-container w-100">
+    <div class="assessments w-100 flex f-col">
+        <% assess.forEach(ass=>{ %> 
+        <div class="assessment w-40 flex ac bx">
+            <div class="thumbnail">
+                <img src="<%=ass.thumbnailPath %> " alt="">
+            </div>
+            <div class="assessment-details w-50 flex ac jc">
+                <ul class="details w-100 flex f-col">
+                    <li><p>Written By:</p> <span>Romeo Fabiano </span></li> 
+                    <li><p>Written On:</p> <span><%= ass.created_on.toISOString().split('T')[0] %>  </span></li> 
+                    <li><a href="assessments/<%=ass.id %> ">view assessment details</a></li>
+                </ul>
+            </div>            
+        </div>
+        <% }) %> 
+    </div>
+</div>

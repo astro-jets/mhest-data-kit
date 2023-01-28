@@ -1,1 +1,51 @@
-Reports Single
+ <div class="assessment-single w-100 mt-5">
+    <div class="top-section w-100 flex f-col ac jc">
+        <h2>Assessment Details for: <span><%= cbo.name %></span></h2>
+        <div class="cbo_logo bx">
+            <img src="<%=cbo.logoPath%>" alt="">
+        </div>
+    </div>
+
+    <div class="report-details-preview w-40 mt-5 flex f-col">
+        <div class="field-agent flex ac w-40">
+            <div class="avatar w-30">
+                <img src="../images/person_2.jpg" alt="">
+            </div>
+
+            <p class="agent-name">
+                Mphatso Mtogolo
+            </p>
+        </div>
+        <p class="date">Written on: <%= assess.created_on.toISOString().split('T')[0] %> </p>
+
+    </div>
+
+    <div class="description flex f-col">
+        <h2>Assessment Details</h2>
+        <div class="thumbnail">
+            <img src="<%=assess.thumbnailPath%> " alt="">
+        </div>
+        <p>
+            <%= assess.details %> 
+        </p>
+    </div>
+    
+    <div class="statistic-rates mt-5 flex w-100">
+        <div class="bx rate germination">
+            <h2>Germination Rate</h2>
+            <p><%= assess.germination %></p>
+            <div class="line"></div>
+        </div>
+        <div class="bx rate survival">
+            <h2>Survival Rate</h2>
+            <p><%= assess.survival %></p>
+            <div class="line"></div>
+        </div>
+        <div class="bx rate motarity">
+            <h2>Motarity Rate</h2>
+            <p><%= assess.trees_planted %></p>
+            <div class="line"></div>
+        </div>
+    </div>
+ </div>
+ 

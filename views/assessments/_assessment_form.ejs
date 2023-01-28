@@ -1,0 +1,59 @@
+<div class="assessment-form">
+    <div class="top-details">
+        <div class="wrapper">
+            <div class="select-btn flex ac bx">
+                <span>Select CBO</span>
+                <i class="icon icon-angle-down"></i>
+            </div>
+
+            <div class="content bx">
+                <div class="search w-100">
+                    <i class="icon icon-search"></i>
+                    <input type="text" name="search" class="search-field" placeholder="search">
+                </div>
+
+                <ul class="options">
+                    <% cbos.forEach(cbo=>{ %>
+                        <li onclick="updateName(this)" class="cbo" data-id="<%= cbo.id %> "> <%=cbo.name %> </li>
+                    <% }) %> 
+                </ul>
+                <input type="text" name="cbo" class="cboID" hidden>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex w-100 center-details">
+        <div class="name w-100 flex f-col">
+            <label for="" class="main-label">Tree Details</label>
+            <div class="group flex w-100">
+                <div class="w-30 flex f-col">
+                    <label for="name">Trees Planted</label>
+                    <input type="text" name="trees_planted" value="<%=assess.trees_planted %>">
+                </div>
+
+                <div class="w-30 flex f-col">
+                    <label for="name">Germination Rate</label>
+                    <input type="text" name="germination" value="<%=assess.germination %> ">
+                </div>
+
+                <div class="w-30 flex f-col">
+                    <label for="name">Survival Rate</label>
+                    <input type="text" name="survival" value="<%=assess.survival %> ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex w-100 bottom-details">
+        <div class="name w-40 flex f-col logo-section ac jc">
+            <i class="icon icon-camera"></i>
+            <p>Attach assessment photos</p>
+            <input type="file" class="logoBtn" name="thumbnail" hidden>
+        </div>
+
+        <div class="name password-fields w-50 flex f-col">
+            <label for="assessment_details" class="main-label">Asessment details</label>
+            <textarea name="details" id="" cols="30" rows="10" class="description"></textarea>
+        </div>
+    </div>
+</div>

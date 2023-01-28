@@ -72,12 +72,13 @@ var data = {
     ]
 };
 
+const ctf = document.getElementById('barChart')
 var groupData = {
     labels: ["Jan", "Feb", "March", "Apr", "May", "June"],
     datasets: [
         {
             label: 'Mwambo',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [100,200,300,400,500,600],
             backgroundColor: "#587ce4",
             hoverBackgroundColor: "#2e59d9",
             borderColor: "rgb(0, 81, 255)",

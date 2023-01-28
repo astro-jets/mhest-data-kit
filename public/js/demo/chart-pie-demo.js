@@ -9,7 +9,11 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Germination", "Survival", "Motarity"],
     datasets: [{
-      data: [55, 30, 15],
+      data: [
+        ctx.attributes['germination'].value,
+        ctx.attributes['survival'].value,
+        900
+      ],
       backgroundColor: ['rgb(25, 214, 19)','rgb(255, 153, 0)', 'rgb(224, 20, 5)'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

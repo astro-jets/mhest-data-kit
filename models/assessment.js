@@ -1,51 +1,46 @@
+const path = require('path')
 const mongoose = require('mongoose');
-const assessmentSchema = new mongoose.Schema({
-  "name": {
-    type: String,
-    required:true
+const coverImageBasePath = "uploads/thumbnails";
+const assessmentSchema = new mongoose.Schema({  
+  "cbo":{
+    type:mongoose.Schema.Types.ObjectId,
+    required:true,
+    ref:"Cbo"
   },
-  "tAuthority": {
-    type: String,
-    required:true
+  "created_on":{
+    type:Date,
+    required:true,
+    default:Date.now
   },
-  
-  "area": {
-    type: String,
-    required:true
-  },
-  
-  "females": {
-    type: String,
-    required:true
-  },
-
-  "males": {
+  "survival": {
     type: String,
     required:true
   },
   
-  "chairman_name": {
+  "trees_planted": {
     type: String,
     required:true
   },
   
-  "chairman_email": {
-    type: String,
-    required:true
-  },
-  
-  "chairman_phone": {
-    type: String,
-    required:true
-  },
-  
-  "logo": {
+  "germination": {
     type: String
   },
   
-  "description": {
+  "thumbnail": {
+    type: String
+  },
+
+  "details": {
     type: String,
     required:true
   }
 })
+
+assessmentSchema.virtual('thumbnailPath').get(function(){
+  if(this.thumbnail != null)
+  {
+    return path.join('/', coverImageBasePath, this.thumbnail)
+  }
+})
 module.exports = mongoose.model("assessment",assessmentSchema);
+module.exports.coverImageBasePath = coverImageBasePath;

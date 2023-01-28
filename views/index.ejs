@@ -1,5 +1,20 @@
 
 <link rel="stylesheet" href="../css/style.css">
+<% 
+assessments.forEach(asess => {
+    report.pie_data.germination += parseInt(asess.germination)
+    report.pie_data.survival += parseInt(asess.survival)
+    cbos.forEach(cbo => {
+        if (asess.cbo == cbo.id) {
+            if(cbo.tAuthority.toLocaleString().trim() == "mlumbe")
+            {
+                report.ta_data.mlumbe += parseInt(asess.survival)
+                console.log(report.mlumbe)
+            }
+        }
+    });
+});
+ %> 
 <div class="tabs">
     <div class="tab" data-link="/team">
         <i class="icon icon-users"></i><p>Field Team</p>
@@ -21,7 +36,7 @@
         <h2>Statistic this month</h2>
 
         <div class="graph">
-            <canvas id="myPieChart" class="w-10"></canvas>
+            <canvas id="myPieChart" survival="<%=report.pie_data.survival%>" germination="<%=report.pie_data.germination %> " class="w-10"></canvas>
         </div>
 
         <div class="key felx f-col ac jc">
@@ -29,14 +44,14 @@
             <div class="germination flex w-100">
                 <span> &nbsp; </span>
                 <p>                    
-                    Germination Rate: 80%
+                    Germination Rate: <%=report.pie_data.germination%> 
                 </p>
             </div>
             
 
             <div class="survival flex w-100">
                 <span>&nbsp;</span>
-                <p>Survival Rate: 30%</p>
+                <p>Survival Rate: <%= report.pie_data.survival %> </p>
             </div>
 
             <div class="motarity flex w-100">
@@ -49,7 +64,7 @@
 
     <div class="right-graph w-60 flex f-col ac">
         <h2>Traditional Authorities Stats</h2>
-        <canvas id="barChart" "></canvas>
+        <canvas id="barChart"></canvas>
     </div>
 </div>
 

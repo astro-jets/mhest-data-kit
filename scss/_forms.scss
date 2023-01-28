@@ -1,5 +1,5 @@
 form{
-    .agent-form,.cbo-form{
+    .assessment-form,.agent-form,.cbo-form{
         padding: 1rem;
         input {
             margin-top: 1rem;
@@ -94,6 +94,92 @@ form{
             .password-fields{
                 input{
                     width:80%;
+                }
+            }
+        }
+    }
+
+    .assessment-form{
+        .wrapper{
+            width: 370px;
+            margin: 130px auto 0;
+            .select-btn{
+                height: 65px;
+                font-size: 22px;                
+                padding: 0 20px;
+                border-radius: 30px;
+                justify-content: space-between;
+                i{
+                    font-size: 2rem;
+                    transition: transform 0.35s linear;
+                }
+            }
+
+            .content{
+                display: none;
+                padding: 20px;
+                margin-top: 1rem;
+                border-radius: 30px;
+
+                .search{
+                    position: relative;
+                    input{
+                        height: 53px;
+                        width: 100%;
+                        font-size: 17px;
+                        padding: 0 15px 0 43px;
+                        border-radius: 10px;
+                        border: 1px solid rgb(121, 115, 115);
+                    }
+                    i{
+                        position: absolute;
+                        line-height: 83px;
+                        left: 15px;
+                        color: rgb(121, 115, 115);
+                        font-size: 20px;
+                    }
+                }
+
+                .options{
+                    margin-top: 10px;
+                    max-height: 250px;
+                    overflow-y: auto;
+                    li{
+                        height:50px;
+                        width: 95%;
+                        border-radius: 5px;
+                        margin: 0.8rem 0;
+                        cursor: pointer;
+                        padding: 8px 13px 0 13px;
+                        font-size: 21px;
+                        &:hover{
+                            color: #fff;
+                            background: linear-gradient(45deg, rgba(13, 201, 13, 0.726), rgb(68, 110, 5));
+                        }
+                        &.selected{
+                            background: linear-gradient(45deg, rgba(13, 201, 13, 0.726), rgb(68, 110, 5)) !important;
+                            color: #fff;
+                            font-weight: 600;
+                        }
+                    }
+                    &::-webkit-scrollbar{width:7px;}
+                    &::-webkit-scrollbar-track{
+                        background: rgba(100, 247, 2, 0.288);
+                        border-radius: 30px;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        background: linear-gradient(45deg, green, greenyellow);
+                        border-radius: 30px;
+                    }
+                }
+            }
+
+            &.active{
+                .content{
+                    display: block;
+                }
+                .select-btn i{
+                    transform: rotate(-180deg);
                 }
             }
         }

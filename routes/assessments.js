@@ -1,6 +1,18 @@
 const express = require('express');
 const assessment = require('../models/assessment');
 const router = express.Router();
+const cbo = require('../models/cbo');
+const fs = require('fs');
+const imageMimeTypes = ['image/jpeg','image/png','image/ico']
+const multer = require('multer');
+const path = require('path');
+const uploadPath = path.join('public',assessment.coverImageBasePath)
+const upload = multer({
+    dest: uploadPath,
+    fileFilter:(req,file,callback)=>{
+        callback(null,imageMimeTypes.includes(file.mimetype))
+    }
+})
 
 //ALL assessments
 router.get("/", async (req,res)=>{
@@ -17,7 +29,7 @@ router.get("/", async (req,res)=>{
         const assessments = await assessment.find(searchOptions)
         res.render('assessments/index',
         {
-            assessment: assessments, 
+            assess: assessments, 
             searchOptions: req.query
         });
     }
@@ -28,8 +40,20 @@ router.get("/", async (req,res)=>{
 })
 
 //NEW assessment *PAGE*
-router.get("/new",(req,res)=>{
-    res.render('assessments/new',{agent: new assessment()});
+router.get("/new",async (req,res)=>{
+    
+    try{
+        const cbos = await cbo.find();
+        res.render('assessments/new',{
+            cbos:cbos,
+            assess:''
+        });
+    }
+    catch
+    {
+        res.render('assessments/');
+    }
+
 })
 
 
@@ -38,10 +62,13 @@ router.get("/:id",async  (req,res)=>{
     const id =  req.params.id
 
     try{
+        
         const assessmentsingle = await assessment.findById(id)
+        const singlecbo = await cbo.findById(assessmentsingle.cbo)
         res.render('assessments/single',
         {
-            agent: assessmentsingle, 
+            cbo : singlecbo,
+            assess: assessmentsingle, 
             searchOptions: req.query
         });
     }
@@ -52,31 +79,45 @@ router.get("/:id",async  (req,res)=>{
 })
 
 //NEW assessment *FORM*
-router.post("/", async (req,res)=>{
+router.post("/",upload.single('thumbnail'), async (req,res)=>{
+    const filename = req.file != null ? req.file.filename : null;
+
     const assessmentDetails = new assessment({
-        name: req.body.firstname +' '+req.body.lastname ,
-        phone: req.body.phone,
-        email: req.body.email,
-        avatar: filename,
-        password: req.body.password
+        cbo: req.body.cbo,
+        trees_planted: req.body.trees_planted,
+        germination: req.body.germination,
+        survival: req.body.survival,
+        details: req.body.details,
+        thumbnail: filename
     })
 
     try{
-        const newAgent = await assessmentDetails.save();
+        const newAsessment = await assessmentDetails.save();
         // res.redirect(`assessments/${newCbo.id}`)
-        res.redirect(`assessment`)
+        res.redirect(`assessments/`)
     }
     
     catch{
-        if(assessmentDetails.avatar != null)
+        
+        if(assessmentDetails.thumnail != null)
         {
-            removeAvatar(assessment.avatar)
+            removeThumbnail(assessment.thumbnail)
         }
+        const cbos = await cbo.find();
         res.render('assessments/new',{
-            assessment: assessmentDetails,
-            errMessage: "Error creating facilitator."
+            assess: assessmentDetails,
+            cbos: cbos,
+            errMessage: "Error creating asessment."
         })
     }
 })
+
+
+function removeThumbnail(filename)
+{
+    fs.unlink(path.join(uploadPath,filename),err=>{
+        if (err) {console.log(err)}
+    })
+}
 
 module.exports = router;
