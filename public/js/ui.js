@@ -7,13 +7,29 @@ const cboID = document.querySelector('.cboID')
 const cbos = document.querySelectorAll('.cbo')
 const optionsContainer = wrapper.querySelector('.options');
 let cboList = [];
-cbos.forEach(cbo => {
-    cboList.push(cbo)
-});
 
-selectBtn.addEventListener('click',()=>{
+if(cbos)
+{
+    cbos.forEach(cbo => {
+        cboList.push(cbo)
+    });
+}
+
+if(selectBtn)
+{
+    selectBtn.addEventListener('click',()=>{
     wrapper.classList.toggle('active');
-})
+    })
+}
+
+if(searchField)
+{
+    searchField.addEventListener('keyup',()=>{
+        let searchedVal = searchField.value.toLowerCase()
+        filterCBO(cboList,searchedVal)
+    })
+}
+
 
 function updateName(selectedList)
 {
@@ -32,11 +48,6 @@ function updateName(selectedList)
     selectBtn.firstElementChild.innerText = selectedList.innerText;
     wrapper.classList.remove('active');    
 }
-
-searchField.addEventListener('keyup',()=>{
-    let searchedVal = searchField.value.toLowerCase()
-    filterCBO(cboList,searchedVal)
-})
 
 function filterCBO(cbo_array,searchedVal)
 {

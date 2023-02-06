@@ -35,7 +35,7 @@
                                     <% cbos.forEach(cbo=>{ %>
                                         <tr class="alert" role="alert">
                                             <td class="d-flex align-items-center">
-                                                <div class="img" style="background-image: url(../uploads/cboLogos/<%=cbo.logo%>);"></div>
+                                                <div class="img" style="background-image: url(<%=cbo.logoPath%>);"></div>
                                                 <div class="pl-3 email">
                                                     <span>
                                                         <%= cbo.name %>

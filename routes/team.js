@@ -1,22 +1,8 @@
 const express = require('express');
 const team = require('../models/team');
 const router = express.Router();
-const multer = require('multer');
-const fs = require('fs');
-const path = require('path');
-
 const imageMimeTypes = ['image/jpeg','image/png','image/ico']
-const uploadPath = path.join('public',team.coverImageBasePath)
-const upload = multer({
-    dest: uploadPath,
-    fileFilter:(req,file,callback)=>{
-        callback(null,imageMimeTypes.includes(file.mimetype))
-    }
-})
 
-
-
-//ALL agents
 router.get("/", async (req,res)=>{
 
     // Searching a team
@@ -66,16 +52,16 @@ router.get("/:id",async  (req,res)=>{
 })
 
 //NEW team *FORM*
-router.post("/", upload.single('avatar'), async (req,res)=>{
-    const filename = req.file != null ? req.file.filename : null;
+router.post("/", async (req,res)=>{
     
     const agentDetails = new team({
         name: req.body.firstname +' '+req.body.lastname ,
         phone: req.body.phone,
         email: req.body.email,
-        avatar: filename,
         password: req.body.password
     })
+
+    saveAvatar(agentDetails, req.body.avatar)
     
     if(req.body.password != req.body.password_confirm)
     {
@@ -94,10 +80,6 @@ router.post("/", upload.single('avatar'), async (req,res)=>{
         }
         
         catch{
-            if(agentDetails.avatar != null)
-            {
-                removeAvatar(team.avatar)
-            }
             res.render('team/new',{
                 team: agentDetails,
                 errMessage: "Error creating facilitator."
@@ -106,13 +88,16 @@ router.post("/", upload.single('avatar'), async (req,res)=>{
     }
 })
 
-
-
-function removeAvatar(filename)
+function saveAvatar(agentDetails, encodedAvatar)
 {
-    fs.unlink(path.join(uploadPath,filename),err=>{
-        if (err) {console.log(err)}
-    })
+    if(encodedAvatar == null){return}
+
+    const avatar = JSON.parse(encodedAvatar)
+    if(avatar != null && imageMimeTypes.includes(avatar.type))
+    {
+        agentDetails.avatar = new Buffer.from(avatar.data, 'base64')
+        agentDetails.avatarType = avatar.type
+    }
 }
 
 module.exports = router;

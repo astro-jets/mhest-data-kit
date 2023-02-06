@@ -1,27 +1,12 @@
 
-<link rel="stylesheet" href="../css/style.css">
-<% 
-assessments.forEach(asess => {
-    report.pie_data.germination += parseInt(asess.germination)
-    report.pie_data.survival += parseInt(asess.survival)
-    cbos.forEach(cbo => {
-        if (asess.cbo == cbo.id) {
-            if(cbo.tAuthority.toLocaleString().trim() == "mlumbe")
-            {
-                report.ta_data.mlumbe += parseInt(asess.survival)
-                console.log(report.mlumbe)
-            }
-        }
-    });
-});
- %> 
+<link rel="stylesheet" href="../css/style.css"> 
 <div class="tabs">
     <div class="tab" data-link="/team">
         <i class="icon icon-users"></i><p>Field Team</p>
     </div>
     
     <div class="tab" data-link="/assessments">
-        <i class="icon icon-bar-chart"></i><p>Assessment <span>76</span></p> 
+        <i class="icon icon-bar-chart"></i><p>Assessment <span><%= assessments.length%> </span></p> 
     </div>
     <div class="tab" data-link="/requests">
         <i class="icon icon-help"></i><p>Requests <span>76</span></p>
@@ -44,26 +29,26 @@ assessments.forEach(asess => {
             <div class="germination flex w-100">
                 <span> &nbsp; </span>
                 <p>                    
-                    Germination Rate: <%=report.pie_data.germination%> 
+                    Germination Rate: <%=report.pie_data.germination%>%
                 </p>
             </div>
             
 
             <div class="survival flex w-100">
                 <span>&nbsp;</span>
-                <p>Survival Rate: <%= report.pie_data.survival %> </p>
+                <p>Survival Rate: <%= report.pie_data.survival%>%</p>
             </div>
 
             <div class="motarity flex w-100">
                 <span>&nbsp;</span>
-                <p>Motarity Rate: 30%</p>
+                <p>Motarity Rate: <%= report.pie_data.motarity%>%</p>
             </div>
 
         </div>
     </div>
 
     <div class="right-graph w-60 flex f-col ac">
-        <h2>Traditional Authorities Stats</h2>
+        <h2>Survival Rate Stats by T/A</h2>
         <canvas id="barChart"></canvas>
     </div>
 </div>
@@ -92,7 +77,7 @@ assessments.forEach(asess => {
                                 <% cbos.forEach(cbo=>{ %>
                                     <tr class="alert" role="alert">
                                         <td class="d-flex align-items-center">
-                                            <div class="img" style="background-image: url('../uploads/cboLogos/<%= cbo.logo %>');"></div>
+                                            <div class="img" style="background-image: url('<%= cbo.logoPath %>');"></div>
                                             <div class="pl-3 email">
                                                 <span>
                                                     <%= cbo.email %>

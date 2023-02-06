@@ -1,6 +1,4 @@
-const path = require('path')
 const mongoose = require('mongoose');
-const coverImageBasePath = "uploads/cboLogos";
 const cboSchema = new mongoose.Schema({
   "name": {
     type: String,
@@ -42,7 +40,13 @@ const cboSchema = new mongoose.Schema({
   },
   
   "logo": {
-    type: String
+    type: Buffer,
+    required:true
+  },
+  
+  "logoType": {
+    type: String,
+    required:true
   },
   
   "description": {
@@ -51,10 +55,9 @@ const cboSchema = new mongoose.Schema({
   }
 })
 cboSchema.virtual('logoPath').get(function(){
-  if(this.logo != null)
+  if(this.logo != null && this.logoType != null)
   {
-    return path.join('/', coverImageBasePath, this.logo)
+    return `data:${this.logoType};charset=utf-8;base64,${this.logo.toString('base64')}`
   }
 })
 module.exports = mongoose.model("Cbo",cboSchema);
-module.exports.coverImageBasePath = coverImageBasePath;

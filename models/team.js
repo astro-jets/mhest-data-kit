@@ -1,6 +1,4 @@
-const path = require('path')
 const mongoose = require('mongoose');
-const coverImageBasePath = "uploads/avatars";
 const teamSchema = new mongoose.Schema({
   "name": {
     type: String,
@@ -17,7 +15,13 @@ const teamSchema = new mongoose.Schema({
   },
   
   "avatar": {
+    type: Buffer,
+    required:true
+  },
+  
+  "avatarType": {
     type: String,
+    required:true
   },
   
   "password": {
@@ -27,10 +31,9 @@ const teamSchema = new mongoose.Schema({
 })
 
 teamSchema.virtual('avatarPath').get(function(){
-  if(this.avatar != null)
+  if(this.avatar != null && this.avatarType != null)
   {
-    return path.join('/', coverImageBasePath, this.avatar)
+    return `data:${this.avatarType};charset=utf-8;base64,${this.avatar.toString('base64')}`
   }
 })
 module.exports = mongoose.model("Team",teamSchema);
-module.exports.coverImageBasePath = coverImageBasePath;

@@ -1,17 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cbo = require('../models/cbo');
-const fs = require('fs');
 const imageMimeTypes = ['image/jpeg','image/png','image/ico']
-const multer = require('multer');
-const path = require('path');
-const uploadPath = path.join('public',cbo.coverImageBasePath)
-const upload = multer({
-    dest: uploadPath,
-    fileFilter:(req,file,callback)=>{
-        callback(null,imageMimeTypes.includes(file.mimetype))
-    }
-})
 
 
 //ALL CBOs
@@ -64,10 +54,8 @@ router.get("/:id",async  (req,res)=>{
 })
 
 //NEW CBO *FORM*
-router.post("/",upload.single('logo'), async (req,res)=>{
-    const filename = req.file != null ? req.file.filename : null;
-
-    const cboName = new cbo({
+router.post("/", async (req,res)=>{
+    const cboDetails = new cbo({
         name: req.body.name,
         tAuthority: req.body.tAuthority,
         area: req.body.area,
@@ -76,32 +64,35 @@ router.post("/",upload.single('logo'), async (req,res)=>{
         chairman_name: req.body.chairman_name,
         chairman_email: req.body.chairman_email,
         chairman_phone: req.body.chairman_phone,
-        logo: filename,
         description: req.body.description
     })
 
+    savelogo(cboDetails,req.body.logo)
+
     try{
-        const newCbo = await cboName.save();
+        const newCbo = await cboDetails.save();
         // res.redirect(`cbos/${newCbo.id}`)
         res.redirect(`cbos`)
     }
     
     catch{
-        if(cboName.logo != null)
-        {
-            removeCboLogo(cbo.logo)
-        }
         res.render('cbos/new',{
-            cbo: cboName,
+            cbo: cboDetails,
             errMessage: "Error creating CBO"
         })
     }
 })
 
-function removeCboLogo(filename)
+function savelogo(cboDetails, encodedlogo)
 {
-    fs.unlink(path.join(uploadPath,filename),err=>{
-        if (err) {console.log(err)}
-    })
+    if(encodedlogo == null){return}
+
+    const logo = JSON.parse(encodedlogo)
+    if(logo != null && imageMimeTypes.includes(logo.type))
+    {
+        cboDetails.logo = new Buffer.from(logo.data, 'base64')
+        cboDetails.logoType = logo.type
+    }
 }
+
 module.exports = router;

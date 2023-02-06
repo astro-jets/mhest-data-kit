@@ -28,22 +28,24 @@ form{
 
         .bottom-details{
             .logo-section{
-                margin-top: 2.5rem;
                 position: relative;
                 overflow: hidden;
-                height: 200px;
+                height: 350px;
                 cursor: pointer;
-                border: 2px dashed greenyellow;
                 border-radius: 10px;
                 input{
                     position: absolute;
-                    top:-10px;
+                    top:-20px;
+                    left:0;
                     height: 100%;
-                    width: 100%;
+                    width: 100%
                 }
                 i{
+                    position: absolute;
+                    z-index: 100;
+                    top:20%;
                     font-size: 3rem;
-                    color: rgb(122, 196, 11);
+                    color: rgba(255, 255, 255, 0.671);
                     margin-bottom: 1rem;
                 }
             }
@@ -183,5 +185,35 @@ form{
                 }
             }
         }
+    }
+}
+
+.avatarCover{
+    width:100%;
+    height: 200px;
+    aspect-ratio: 0.8;
+}
+.filepond--root{
+    font-family: 'Courier New', Courier, monospace;
+    width: 100% !important;
+    margin: 0;
+    cursor: pointer;
+}
+
+.filepond--panel-root{
+    background: linear-gradient(45deg,rgba(0, 128, 0, 0.596),greenyellow);
+    cursor: pointer;
+    width: 100% !important;
+}
+
+.filepond--drop-label{
+    color: #fff;
+    margin-top: 20%;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+}
+.filepond--image-bitmap {
+    canvas {
+        z-index: 200;
     }
 }

@@ -1,6 +1,4 @@
-const path = require('path')
 const mongoose = require('mongoose');
-const coverImageBasePath = "uploads/thumbnails";
 const assessmentSchema = new mongoose.Schema({  
   "cbo":{
     type:mongoose.Schema.Types.ObjectId,
@@ -27,7 +25,14 @@ const assessmentSchema = new mongoose.Schema({
   },
   
   "thumbnail": {
-    type: String
+    type: Buffer,
+    required:true
+  },
+
+  
+  "thumbnailType": {
+    type: String,
+    required:true
   },
 
   "details": {
@@ -37,10 +42,9 @@ const assessmentSchema = new mongoose.Schema({
 })
 
 assessmentSchema.virtual('thumbnailPath').get(function(){
-  if(this.thumbnail != null)
+  if(this.thumbnail != null && this.thumbnailType != null)
   {
-    return path.join('/', coverImageBasePath, this.thumbnail)
+    return `data:${this.thumbnailType};charset=utf-8;base64,${this.thumbnail.toString('base64')}`
   }
 })
 module.exports = mongoose.model("assessment",assessmentSchema);
-module.exports.coverImageBasePath = coverImageBasePath;
